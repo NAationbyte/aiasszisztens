@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent – Website + AI Chatbot for Small Businesses</title>
+    <meta name="description" content="We build your website AND add an AI chatbot that handles customer inquiries 24/7. Professional website + smart assistant from $149/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C3AED;
+            --primary-dark: #5B21B6;
+            --primary-light: #8B5CF6;
+            --accent: #10B981;
+            --bg: #FAFAFA;
+            --bg-dark: #0F0F23;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --card: #FFFFFF;
+            --border: #E5E7EB;
+            --gradient: linear-gradient(135deg, #6C3AED 0%, #3B82F6 50%, #10B981 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 0.8rem 0; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary) !important; color: white !important; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 600 !important; }
+        .nav-lang { font-size: 0.85rem; background: #F3F4F6; padding: 0.4rem 0.8rem; border-radius: 6px; color: var(--text); }
+
+        .hero { padding: 8rem 1.5rem 4rem; text-align: center; max-width: 950px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(108,58,237,0.1); color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; color: var(--bg-dark); }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 700px; margin: 0 auto 2.5rem; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; border-radius: 12px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px rgba(108,58,237,0.3); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-secondary { background: white; color: var(--text); border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Value Props */
+        .value-props { max-width: 1000px; margin: 0 auto 4rem; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .value-prop { text-align: center; padding: 1.5rem; }
+        .value-prop .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+        .value-prop h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .value-prop p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* Problem/Solution */
+        .problem-solution { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .problem, .solution { padding: 2.5rem; border-radius: 20px; }
+        .problem { background: #FEF2F2; border: 2px solid #FECACA; }
+        .solution { background: #F0FDF4; border: 2px solid #BBF7D0; }
+        .problem h3, .solution h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; }
+        .problem h3 { color: #DC2626; }
+        .solution h3 { color: #16A34A; }
+        .problem ul, .solution ul { list-style: none; }
+        .problem ul li, .solution ul li { padding: 0.5rem 0; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .problem ul li::before { content: "✗"; color: #DC2626; font-weight: 700; }
+        .solution ul li::before { content: "✓"; color: #16A34A; font-weight: 700; }
+
+        /* What You Get */
+        .what-you-get { background: var(--bg-dark); color: white; padding: 5rem 1.5rem; }
+        .what-you-get .section-header h2 { color: white; }
+        .what-you-get .section-header p { color: rgba(255,255,255,0.6); }
+        .deliverables { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .deliverable { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; transition: all 0.3s; }
+        .deliverable:hover { background: rgba(255,255,255,0.1); border-color: var(--primary-light); }
+        .deliverable .d-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .deliverable h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .deliverable p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--bg-dark); }
+        .section-header p { color: var(--text-light); font-size: 1.1rem; max-width: 550px; margin: 0 auto; }
+
+        /* Pricing */
+        .pricing { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .price-card { background: var(--card); border: 2px solid var(--border); border-radius: 20px; padding: 2.5rem 2rem; position: relative; }
+        .price-card.popular { border-color: var(--primary); box-shadow: 0 10px 40px rgba(108,58,237,0.15); }
+        .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+        .price-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .price-subtitle { color: var(--text-light); font-size: 0.85rem; margin-bottom: 1rem; }
+        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .price span { font-size: 0.9rem; font-weight: 500; color: var(--text-light); }
+        .price-setup { color: var(--text-light); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .price-features { list-style: none; margin-bottom: 2rem; }
+        .price-features li { padding: 0.4rem 0; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .price-features li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+        .price-note { background: #F3F4F6; padding: 0.8rem; border-radius: 8px; font-size: 0.8rem; color: var(--text-light); text-align: center; margin-bottom: 1.5rem; }
+
+        /* Comparison */
+        .comparison { background: #F3F4F6; padding: 5rem 1.5rem; }
+        .comp-table { max-width: 800px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .comp-table table { width: 100%; border-collapse: collapse; }
+        .comp-table th, .comp-table td { padding: 1rem 1.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .comp-table th { background: var(--bg-dark); color: white; font-weight: 600; }
+        .comp-table tr:last-child td { border-bottom: none; }
+        .comp-table .us { color: var(--primary); font-weight: 700; }
+
+        /* Industries */
+        .industries { padding: 5rem 1.5rem; }
+        .industries-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+        .industry-item { background: white; border-radius: 12px; padding: 1.2rem; text-align: center; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--border); transition: all 0.2s; }
+        .industry-item:hover { border-color: var(--primary-light); transform: translateY(-2px); }
+        .industry-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+        /* CTA */
+        .cta { padding: 5rem 1.5rem; text-align: center; }
+        .cta-box { max-width: 700px; margin: 0 auto; background: var(--gradient); border-radius: 24px; padding: 3.5rem 2rem; color: white; }
+        .cta-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-box .price-big { font-size: 3rem; font-weight: 800; margin: 1rem 0; }
+        .cta-box p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.05rem; }
+        .btn-white { background: white; color: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+        .btn-white:hover { transform: translateY(-2px); }
+        .guarantee { margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85; }
+
+        footer { background: var(--bg-dark); color: rgba(255,255,255,0.5); padding: 3rem 1.5rem; text-align: center; font-size: 0.85rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .value-props { grid-template-columns: 1fr; }
+            .problem-solution { grid-template-columns: 1fr; }
+            .deliverables { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="logo">🤖 AI Agent</a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#compare">Compare</a>
+            <a href="../" class="nav-lang">🇭🇺 Magyar</a>
+            <a href="#cta" class="nav-cta">Get started free →</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-badge">🔥 Website + AI chatbot in one package</div>
+    <h1>Stop losing customers <span>while you sleep</span></h1>
+    <p>We build your professional website AND add an AI assistant that handles customer inquiries, captures leads, and books appointments — 24/7, automatically. Setup in 48 hours.</p>
+    <div class="hero-buttons">
+        <a href="#cta" class="btn btn-primary">🎯 Start free 14-day trial</a>
+        <a href="#features" class="btn btn-secondary">See what you get →</a>
+    </div>
+</section>
+
+<div class="value-props">
+    <div class="value-prop">
+        <div class="icon">⚡</div>
+        <h3>Live in 48 hours</h3>
+        <p>We do all the work. You just answer a few questions about your business.</p>
+    </div>
+    <div class="value-prop">
+        <div class="icon">🧠</div>
+        <h3>Real AI, not scripts</h3>
+        <p>Powered by the same AI as ChatGPT. Understands context, handles any question naturally.</p>
+    </div>
+    <div class="value-prop">
+        <div class="icon">💰</div>
+        <h3>Pays for itself</h3>
+        <p>One new customer per month covers the cost. Most clients see 5-10x ROI.</p>
+    </div>
+</div>
+
+<!-- Problem / Solution -->
+<div class="problem-solution">
+    <div class="problem">
+        <h3>❌ Without AI Agent</h3>
+        <ul>
+            <li>Missed calls and messages after hours</li>
+            <li>Customers go to competitors who respond faster</li>
+            <li>Hours wasted answering the same questions</li>
+            <li>No website or an outdated one from 2019</li>
+            <li>Leads slip through the cracks</li>
+            <li>Can't afford a receptionist ($3,000+/mo)</li>
+        </ul>
+    </div>
+    <div class="solution">
+        <h3>✅ With AI Agent</h3>
+        <ul>
+            <li>Every inquiry answered instantly, 24/7</li>
+            <li>Professional website that converts visitors</li>
+            <li>AI captures name, phone, email automatically</li>
+            <li>Appointments booked while you sleep</li>
+            <li>You get notified the moment a lead comes in</li>
+            <li>All for less than $5/day</li>
+        </ul>
+    </div>
+</div>
+
+<!-- What You Get -->
+<section class="what-you-get" id="features">
+    <div class="section-header">
+        <h2>Everything you need. Nothing you don't.</h2>
+        <p>Website + AI chatbot + lead capture — all included</p>
+    </div>
+    <div class="deliverables">
+        <div class="deliverable">
+            <div class="d-icon">🌐</div>
+            <h4>Professional website</h4>
+            <p>Custom-designed, mobile-first, SEO-optimized. Your business, beautifully presented.</p>
+        </div>
+        <div class="deliverable">
+            <div class="d-icon">🤖</div>
+            <h4>AI chatbot</h4>
+            <p>Trained on YOUR business. Answers questions, gives quotes, handles objections — in your voice.</p>
+        </div>
+        <div class="deliverable">
+            <div class="d-icon">📋</div>
+            <h4>Lead capture</h4>
+            <p>Every visitor's name, phone, email, and what they need — sent to you instantly via text or email.</p>
+        </div>
+        <div class="deliverable">
+            <div class="d-icon">📅</div>
+            <h4>Appointment booking</h4>
+            <p>Customers book directly in the chat. Syncs with your Google Calendar. Zero back-and-forth.</p>
+        </div>
+        <div class="deliverable">
+            <div class="d-icon">💬</div>
+            <h4>WhatsApp & SMS</h4>
+            <p>Your AI works on your website, WhatsApp, Facebook Messenger, or SMS. Wherever your customers are.</p>
+        </div>
+        <div class="deliverable">
+            <div class="d-icon">📊</div>
+            <h4>Weekly reports</h4>
+            <p>Every week: how many leads, what they asked, and what to improve. Data-driven growth.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+    <div class="section-header">
+        <h2>Simple, transparent pricing</h2>
+        <p>No contracts. Cancel anytime. 14-day free trial on all plans.</p>
+    </div>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Starter</h3>
+            <p class="price-subtitle">For new & small businesses</p>
+            <div class="price">$99 <span>/ month</span></div>
+            <p class="price-setup">+ $299 one-time setup</p>
+            <ul class="price-features">
+                <li>1-page professional website</li>
+                <li>AI chatbot (trained on your business)</li>
+                <li>Lead capture with email alerts</li>
+                <li>Up to 100 AI conversations/month</li>
+                <li>Monthly performance report</li>
+                <li>Email support</li>
+            </ul>
+            <a href="#cta" class="btn btn-secondary" style="width:100%;justify-content:center;">Start free trial</a>
+        </div>
+        <div class="price-card popular">
+            <div class="popular-badge">⭐ Most popular</div>
+            <h3>Growth</h3>
+            <p class="price-subtitle">For growing businesses</p>
+            <div class="price">$199 <span>/ month</span></div>
+            <p class="price-setup">+ $499 one-time setup</p>
+            <ul class="price-features">
+                <li>Multi-page website (up to 5 pages)</li>
+                <li>Everything in Starter</li>
+                <li>Appointment booking (Google Calendar)</li>
+                <li>WhatsApp + website chat</li>
+                <li>Up to 500 AI conversations/month</li>
+                <li>Weekly reports</li>
+                <li>Priority support</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary" style="width:100%;justify-content:center;">Start free trial</a>
+        </div>
+        <div class="price-card">
+            <h3>Pro</h3>
+            <p class="price-subtitle">For established businesses</p>
+            <div class="price">$349 <span>/ month</span></div>
+            <p class="price-setup">+ $999 one-time setup</p>
+            <ul class="price-features">
+                <li>Full custom website (unlimited pages)</li>
+                <li>Everything in Growth</li>
+                <li>Custom AI conversation flows</li>
+                <li>CRM integration</li>
+                <li>Unlimited AI conversations</li>
+                <li>Multi-language support</li>
+                <li>Analytics dashboard</li>
+                <li>Dedicated account manager</li>
+            </ul>
+            <a href="#cta" class="btn btn-secondary" style="width:100%;justify-content:center;">Start free trial</a>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison -->
+<section class="comparison" id="compare">
+    <div class="section-header">
+        <h2>Why AI Agent?</h2>
+        <p>Compare us to hiring or using generic tools</p>
+    </div>
+    <div class="comp-table">
+        <table>
+            <tr>
+                <th></th>
+                <th>Receptionist</th>
+                <th>DIY Chatbot</th>
+                <th class="us">AI Agent</th>
+            </tr>
+            <tr>
+                <td><strong>Monthly cost</strong></td>
+                <td>$3,000+</td>
+                <td>$40-150</td>
+                <td class="us">$99-349</td>
+            </tr>
+            <tr>
+                <td><strong>Available</strong></td>
+                <td>9-5 only</td>
+                <td>24/7</td>
+                <td class="us">24/7</td>
+            </tr>
+            <tr>
+                <td><strong>Website included</strong></td>
+                <td>No</td>
+                <td>No</td>
+                <td class="us">✓ Yes</td>
+            </tr>
+            <tr>
+                <td><strong>Setup time</strong></td>
+                <td>2-4 weeks</td>
+                <td>Days (you do it)</td>
+                <td class="us">48 hours (we do it)</td>
+            </tr>
+            <tr>
+                <td><strong>Understands context</strong></td>
+                <td>Yes</td>
+                <td>No (scripts)</td>
+                <td class="us">✓ Yes (real AI)</td>
+            </tr>
+            <tr>
+                <td><strong>Never calls in sick</strong></td>
+                <td>No</td>
+                <td>Yes</td>
+                <td class="us">✓ Yes</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Industries -->
+<section class="industries">
+    <div class="section-header">
+        <h2>Built for local service businesses</h2>
+        <p>If customers call or message you — we can help</p>
+    </div>
+    <div class="industries-grid">
+        <div class="industry-item"><div class="industry-icon">🦷</div>Dentists</div>
+        <div class="industry-item"><div class="industry-icon">✂️</div>Hair salons</div>
+        <div class="industry-item"><div class="industry-icon">🔧</div>Plumbers & HVAC</div>
+        <div class="industry-item"><div class="industry-icon">🏠</div>Contractors</div>
+        <div class="industry-item"><div class="industry-icon">🏘️</div>Real estate</div>
+        <div class="industry-item"><div class="industry-icon">⚖️</div>Law firms</div>
+        <div class="industry-item"><div class="industry-icon">🏋️</div>Gyms & studios</div>
+        <div class="industry-item"><div class="industry-icon">🍕</div>Restaurants</div>
+        <div class="industry-item"><div class="industry-icon">🚗</div>Auto shops</div>
+        <div class="industry-item"><div class="industry-icon">🏥</div>Clinics</div>
+        <div class="industry-item"><div class="industry-icon">🐾</div>Veterinarians</div>
+        <div class="industry-item"><div class="industry-icon">💅</div>Med spas</div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+    <div class="cta-box">
+        <h2>Your AI employee is ready to start</h2>
+        <p>Professional website + AI chatbot that works 24/7.<br>Less than the cost of a part-time hire.</p>
+        <a href="mailto:hello@aiagent.com?subject=I want to try AI Agent&body=Hi! I'm interested in getting a website + AI chatbot for my business.%0A%0AMy business: %0AIndustry: %0AWebsite (if any): " class="btn btn-white">🚀 Start your free trial</a>
+        <p class="guarantee">🔒 14-day free trial · No credit card required · Cancel anytime</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 AI Agent. All rights reserved.</p>
+    <p style="margin-top:0.5rem;"><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:hello@aiagent.com">hello@aiagent.com</a></p>
+</footer>
+
+</body>
+</html>

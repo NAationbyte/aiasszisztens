@@ -1,0 +1,143 @@
+{
+  "business": {
+    "name": "BestPhones.hu",
+    "industry": "Mobiltelefon értékesítés",
+    "description": "Új iPhone és Samsung készülékek kedvező áron, gyors szállítással.",
+    "website": "https://bestphones.hu",
+    "phone": "",
+    "email": "chiaratosro@proton.me",
+    "address": "",
+    "hours": {
+      "monday": "09:00-18:00",
+      "tuesday": "09:00-18:00",
+      "wednesday": "09:00-18:00",
+      "thursday": "09:00-18:00",
+      "friday": "09:00-18:00",
+      "saturday": "10:00-14:00",
+      "sunday": "closed"
+    },
+    "languages": ["hu"],
+    "timezone": "Europe/Budapest"
+  },
+  "services": [
+    {
+      "name": "iPhone 16 Pro Max 256GB",
+      "description": "A18 Pro chip, 6.9\" Super Retina XDR, 48MP kamerarendszer, titánium design",
+      "price_from": 589990,
+      "price_note": "Ft, szín szerint változhat"
+    },
+    {
+      "name": "iPhone 16 Pro 128GB",
+      "description": "A18 Pro chip, 6.3\" Super Retina XDR, 48MP kamerarendszer",
+      "price_from": 449990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "iPhone 16 128GB",
+      "description": "A18 chip, 6.1\" Super Retina XDR, 48MP kamera",
+      "price_from": 339990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "iPhone 16 Plus 128GB",
+      "description": "A18 chip, 6.7\" Super Retina XDR, 48MP kamera",
+      "price_from": 379990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "iPhone 15 Pro Max 256GB",
+      "description": "A17 Pro chip, 6.7\" kijelző, 48MP kamera, titánium",
+      "price_from": 489990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "iPhone 15 128GB",
+      "description": "A16 Bionic chip, 6.1\" kijelző, 48MP kamera",
+      "price_from": 249990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "Samsung Galaxy S25 Ultra 256GB",
+      "description": "Snapdragon 8 Elite, 6.9\" Dynamic AMOLED 2X, 200MP kamera, Galaxy AI",
+      "price_from": 559990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "Samsung Galaxy S25+ 256GB",
+      "description": "Snapdragon 8 Elite, 6.7\" Dynamic AMOLED 2X, 50MP kamera",
+      "price_from": 419990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "Samsung Galaxy S25 128GB",
+      "description": "Snapdragon 8 Elite, 6.2\" Dynamic AMOLED 2X, 50MP kamera",
+      "price_from": 299990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "Samsung Galaxy S24 Ultra 256GB",
+      "description": "Snapdragon 8 Gen 3, 6.8\" kijelző, 200MP kamera, S Pen",
+      "price_from": 429990,
+      "price_note": "Ft"
+    },
+    {
+      "name": "Samsung Galaxy S24 128GB",
+      "description": "Exynos 2400, 6.2\" kijelző, 50MP kamera",
+      "price_from": 239990,
+      "price_note": "Ft"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Milyen fizetési lehetőségek vannak?",
+      "answer": "Utánvéttel (fizetés átvételkor) vagy online kártyás fizetéssel rendelhet."
+    },
+    {
+      "question": "Mennyi a szállítási idő?",
+      "answer": "A szállítási idő általában 1-3 munkanap."
+    },
+    {
+      "question": "Van garancia?",
+      "answer": "Igen, minden termékre hivatalos gyártói garancia vonatkozik."
+    },
+    {
+      "question": "Visszaküldhetem a terméket?",
+      "answer": "Igen, 14 napon belül indoklás nélkül visszaküldheti a terméket."
+    },
+    {
+      "question": "Hogyan rendelhetek?",
+      "answer": "WhatsApp-on vagy e-mailben tud rendelni. Válassza ki a kívánt terméket és írjon nekünk!"
+    },
+    {
+      "question": "Van más telefon is ami nincs az oldalon?",
+      "answer": "Igen! Bármilyen telefont be tudunk szerezni. Írjon nekünk és küldünk ajánlatot."
+    }
+  ],
+  "lead_capture": {
+    "enabled": true,
+    "fields": ["name", "phone", "email", "product_interest"],
+    "required_fields": ["name", "phone"],
+    "notification_email": "chiaratosro@proton.me",
+    "notification_whatsapp": ""
+  },
+  "tone": {
+    "formality": "friendly_casual",
+    "language_style": "fiatalos, barátságos, de profi",
+    "greeting": "Szia! 👋 Miben segíthetek? Kérdezz bátran a telefonokról, árakról, szállításról!",
+    "farewell": "Köszi hogy betértél! Ha bármi kérdésed van, írj bátran! 📱",
+    "handoff_message": "Ezt a kérdést továbbítom egy kollégának, aki hamarosan jelentkezik!"
+  },
+  "safety": {
+    "blocked_topics": ["politics", "religion", "competitors_internal"],
+    "max_response_length": 400,
+    "always_handoff_keywords": ["reklamáció", "panasz", "visszaküldés", "garancia probléma"],
+    "never_make_up": ["prices", "availability", "delivery_dates", "warranty_details"],
+    "off_topic_response": "Ebben sajnos nem tudok segíteni, de telefonokkal kapcsolatban szívesen állok rendelkezésedre! 📱"
+  },
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.4,
+    "max_tokens": 400
+  }
+}

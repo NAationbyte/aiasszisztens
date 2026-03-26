@@ -1,0 +1,141 @@
+{
+  "business": {
+    "name": "Rodo Nyílászáró",
+    "industry": "construction",
+    "description": "Nyílászáró forgalmazás és beépítés. Ablakok, ajtók, redőnyök, szúnyoghálók.",
+    "website": "https://rodo.hu",
+    "phone": "+36207734132",
+    "email": "rodoablak@gmail.com",
+    "address": "Budapest",
+    "hours": {
+      "monday": "08:00-17:00",
+      "tuesday": "08:00-17:00",
+      "wednesday": "08:00-17:00",
+      "thursday": "08:00-17:00",
+      "friday": "08:00-16:00",
+      "saturday": "09:00-12:00",
+      "sunday": "closed"
+    },
+    "languages": [
+      "hu"
+    ],
+    "timezone": "Europe/Budapest"
+  },
+  "services": [
+    {
+      "name": "Műanyag ablakok",
+      "description": "Aluplast, Rehau, Gealan, Veka, Schüco profilok",
+      "price_from": 45000,
+      "price_to": 180000,
+      "price_note": "mérettől és profiltól függően",
+      "duration": ""
+    },
+    {
+      "name": "Bejárati ajtók",
+      "description": "Műanyag és alumínium bejárati ajtók",
+      "price_from": 150000,
+      "price_to": null,
+      "price_note": "egyedi árajánlat alapján",
+      "duration": ""
+    },
+    {
+      "name": "Redőnyök",
+      "description": "Műanyag és alumínium redőnyök, szúnyoghálók",
+      "price_from": 25000,
+      "price_to": null,
+      "price_note": "mérettől függően",
+      "duration": ""
+    },
+    {
+      "name": "Beépítés",
+      "description": "Professzionális beépítés garanciával",
+      "price_from": null,
+      "price_to": null,
+      "price_note": "árajánlat tartalmazza",
+      "duration": "1-3 nap"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Mennyi idő alatt készül el a rendelés?",
+      "answer": "A szállítási idő általában 2-4 hét a rendeléstől számítva, profiltól függően."
+    },
+    {
+      "question": "Ingyenes a felmérés?",
+      "answer": "Igen, a helyszíni felmérés teljesen ingyenes és kötelezettségmentes."
+    },
+    {
+      "question": "Hogyan kell íves ablakot mérni?",
+      "answer": "Íves ablaknál: 1) Szélesség: kávától káváig 3 ponton (alul, középen, ív indulásánál) — a legkisebbet írja fel. 2) Magasság az ív indulásáig: padlótól az ív kezdőpontjáig mindkét oldalon. 3) Teljes magasság: padlótól az ív tetejéig középen. 4) Az ívről készítsen karton sablont — illessze a nyílásba és rajzolja körbe az ív vonalát. Ezt a sablont hozza el a felmérésre. Ha kényelmes, ingyenes helyszíni felmérésen mi mindent lemérünk!"
+    },
+    {
+      "question": "Milyen különleges formájú ablakokat tudnak készíteni?",
+      "answer": "Gyártunk íves (félkör, szegmensív), trapéz, háromszög és egyéb egyedi formájú ablakokat is. Ezekhez mindig egyedi felmérés szükséges — hívjon minket és ingyenesen kimegyünk!"
+    },
+    {
+      "question": "Van garancia?",
+      "answer": "Igen, termékeinkre 5 év gyártói garancia, a beépítésre 3 év garancia vonatkozik."
+    },
+    {
+      "question": "Milyen fizetési lehetőségek vannak?",
+      "answer": "Készpénz, banki átutalás, vagy akár részletfizetés is lehetséges."
+    }
+  ],
+  "lead_capture": {
+    "enabled": true,
+    "fields": [
+      "name",
+      "phone",
+      "email",
+      "service_interest"
+    ],
+    "required_fields": [
+      "name",
+      "phone"
+    ],
+    "notification_email": "rodoablak@gmail.com",
+    "notification_whatsapp": "+36207734132"
+  },
+  "booking": {
+    "enabled": false,
+    "calendar_link": "",
+    "booking_instructions": ""
+  },
+  "tone": {
+    "formality": "polite_friendly",
+    "language_style": "professional and straightforward",
+    "greeting": "Üdvözlöm! Miben segíthetek?",
+    "farewell": "Köszönöm a megkeresést! Szép napot kívánok!",
+    "handoff_message": "Ezt a kérdést kollégámnak továbbítom, aki hamarosan felveszi Önnel a kapcsolatot."
+  },
+  "safety": {
+    "blocked_topics": [
+      "politics",
+      "religion",
+      "competitors",
+      "internal_pricing"
+    ],
+    "max_response_length": 500,
+    "always_handoff_keywords": [
+      "reklamáció",
+      "complaint",
+      "panasz",
+      "ügyvéd",
+      "lawyer"
+    ],
+    "never_make_up": [
+      "prices",
+      "availability",
+      "contact_details",
+      "medical_advice",
+      "legal_advice"
+    ],
+    "off_topic_response": "Ebben sajnos nem tudok segíteni, de {service_topic}-kal kapcsolatban szívesen állok rendelkezésére!"
+  },
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.3,
+    "max_tokens": 500
+  }
+}

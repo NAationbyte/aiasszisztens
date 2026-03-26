@@ -1,0 +1,70 @@
+{
+  "business": {
+    "name": "",
+    "industry": "",
+    "description": "",
+    "website": "",
+    "phone": "",
+    "email": "",
+    "address": "",
+    "hours": {
+      "monday": "08:00-17:00",
+      "tuesday": "08:00-17:00",
+      "wednesday": "08:00-17:00",
+      "thursday": "08:00-17:00",
+      "friday": "08:00-17:00",
+      "saturday": "closed",
+      "sunday": "closed"
+    },
+    "languages": ["hu"],
+    "timezone": "Europe/Budapest"
+  },
+  "services": [
+    {
+      "name": "",
+      "description": "",
+      "price_from": null,
+      "price_to": null,
+      "price_note": "",
+      "duration": ""
+    }
+  ],
+  "faq": [
+    {
+      "question": "",
+      "answer": ""
+    }
+  ],
+  "lead_capture": {
+    "enabled": true,
+    "fields": ["name", "phone", "email", "service_interest"],
+    "required_fields": ["name", "phone"],
+    "notification_email": "",
+    "notification_whatsapp": ""
+  },
+  "booking": {
+    "enabled": false,
+    "calendar_link": "",
+    "booking_instructions": ""
+  },
+  "tone": {
+    "formality": "polite_friendly",
+    "language_style": "professional but warm",
+    "greeting": "Üdvözlöm! Miben segíthetek?",
+    "farewell": "Köszönöm a megkeresést! Szép napot kívánok!",
+    "handoff_message": "Ezt a kérdést kollégámnak továbbítom, aki hamarosan felveszi Önnel a kapcsolatot."
+  },
+  "safety": {
+    "blocked_topics": ["politics", "religion", "competitors", "internal_pricing"],
+    "max_response_length": 500,
+    "always_handoff_keywords": ["reklamáció", "complaint", "panasz", "ügyvéd", "lawyer"],
+    "never_make_up": ["prices", "availability", "contact_details", "medical_advice", "legal_advice"],
+    "off_topic_response": "Ebben sajnos nem tudok segíteni, de {service_topic}-kal kapcsolatban szívesen állok rendelkezésére!"
+  },
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.3,
+    "max_tokens": 500
+  }
+}
